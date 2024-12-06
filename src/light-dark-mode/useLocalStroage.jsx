@@ -6,11 +6,14 @@ export default function useLocalStroage(key, defaultValue) {
     const [value, setValue] = useState(() => {
         let currentValue;
         try {
-            currentValue = JSON.parse(localStorage.getItem(key) || String(defaultValue))
+            currentValue = JSON.parse(
+                localStorage.getItem(key) || String(defaultValue));
+                //console.log(currentValue);
 
-        } catch (e) {
-            console.log(e)
-            currentValue;
+        } catch (error)
+         {
+            console.log(error)
+            currentValue=defaultValue;
 
         }
         return currentValue;
@@ -18,7 +21,7 @@ export default function useLocalStroage(key, defaultValue) {
 
    useEffect(()=>{
     localStorage.setItem(key,JSON.stringify(value))
-   },[key,setValue]);
+   },[key,value]);
 
    return [value,setValue];
 
