@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       {/* <QrGenarator/> */}
+      {/* {creating light and dark mode} */}
       <LightDarkMode/>
        
     </div>
